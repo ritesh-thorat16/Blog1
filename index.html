@@ -1,69 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Web Blog</title>
     <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f9;
             color: #333;
-
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
         header {
             background: #4A90E2;
             color: white;
             text-align: center;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
         }
 
         nav {
             background: #333;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             text-decoration: none;
+            transition: background 0.3s;
         }
 
         nav a:hover {
             background: #4A90E2;
         }
 
-        main {
-            max-width: 800px;
+        /* ===== MAIN CONTENT ===== */
+        .container {
+            display: flex;
+            max-width: 1200px;
             margin: 2rem auto;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        main {
+            flex: 3;
             background: white;
             padding: 2rem;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
 
         article {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         article h2 {
             color: #4A90E2;
+            margin-bottom: 0.5rem;
         }
 
+        article p {
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            background: #4A90E2;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .read-more:hover {
+            background: #357ABD;
+        }
+
+        /* ===== SIDEBAR ===== */
+        aside {
+            flex: 1;
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        aside h3 {
+            color: #4A90E2;
+            border-bottom: 2px solid #4A90E2;
+            padding-bottom: 0.5rem;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            margin: 0.8rem 0;
+        }
+
+        aside ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        aside ul li a:hover {
+            color: #4A90E2;
+        }
+
+        /* ===== COMMENT SECTION ===== */
+        .comment-section {
+            margin-top: 3rem;
+        }
+
+        .comment-section h3 {
+            color: #4A90E2;
+        }
+
+        .comment-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .comment-section input,
+        .comment-section textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .comment-section button {
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .comment-section button:hover {
+            background: #357ABD;
+        }
+
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             background: #333;
             color: white;
-            padding: 1rem;
-            margin-top: 2rem;
+            padding: 1.5rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .social-icons {
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #4A90E2;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #444;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Welcome to My First Blog</h1>
         <p>My personal website hosted on GitHub Pages</p>
@@ -73,23 +223,69 @@
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Posts</a>
+        <a href="#">Gallery</a>
         <a href="#">Contact</a>
     </nav>
 
-    <main>
-        <article>
-            <h2>🎉 My First Blog Post</h2>
-            <p>Hello everyone! This is my very first blog post on my new website hosted on GitHub Pages. I’m learning web development and I’m excited to share my journey with you!</p>
-        </article>
+    <div class="container">
+        <main>
+            <article>
+                <h2>🎉 My First Blog Post</h2>
+                <p>Hello everyone! This is my very first blog post on my new website hosted on GitHub Pages. I’m learning web development and I’m excited to share my journey with you!</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
 
-        <article>
-            <h2>💻 Learning HTML & CSS</h2>
-            <p>HTML is the structure of a webpage, and CSS adds the style. Together, they make a webpage look beautiful and organized. I’ll be adding more posts soon!</p>
-        </article>
-    </main>
+            <article>
+                <h2>💻 Learning HTML & CSS</h2>
+                <p>HTML is the structure of a webpage, and CSS adds the style. Together, they make a webpage look beautiful and organized. I’ll be adding more posts soon!</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+
+            <article>
+                <h2>🚀 My Web Development Goals</h2>
+                <p>My goal is to become a full-stack web developer. I plan to learn JavaScript, React, and Node.js after mastering HTML and CSS. Let’s see where this journey takes me!</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+
+            <section class="comment-section">
+                <h3>💬 Leave a Comment</h3>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Your Comment..." required></textarea>
+                    <button type="submit">Submit Comment</button>
+                </form>
+            </section>
+        </main>
+
+        <aside>
+            <h3>📂 Categories</h3>
+            <ul>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">HTML & CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">Git & GitHub</a></li>
+                <li><a href="#">Personal Growth</a></li>
+            </ul>
+
+            <h3>🔥 Recent Posts</h3>
+            <ul>
+                <li><a href="#">Why I Started Blogging</a></li>
+                <li><a href="#">5 Tips for Beginners in HTML</a></li>
+                <li><a href="#">CSS Tricks for Better Design</a></li>
+            </ul>
+        </aside>
+    </div>
 
     <footer>
         <p>© 2025 My First Blog | Made with ❤️ and GitHub Pages</p>
+        <div class="social-icons">
+            <a href="#">🌐</a>
+            <a href="#">🐦</a>
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+        </div>
     </footer>
+
 </body>
 </html>
